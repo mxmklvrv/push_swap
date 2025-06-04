@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:19:19 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/03 17:45:01 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:45:18 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ typedef struct s_node
 
 }					t_node;
 
-
 // input validation
-int check_input(int ac, char **av);
-int confirm_single(char *str);
-int confirm_multiple(int ac, char **av);
+void				ft_check_empty_input(char **av);
 
-// ft_basics 
-int ft_isspace(int c);
-int ft_isdigit(int c);
+// ft_basics
+int					ft_isspace(int c);
+int					ft_isdigit(int c);
+int					ft_new_ac_count(char **av);
 
+// split
+char				**ft_split(char const *s, char c);
 
 #endif
