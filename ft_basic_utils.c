@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:22:47 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/04 16:45:16 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/04 19:58:09 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,28 @@ int	ft_new_ac_count(char **av)
 	while (av[i] != NULL)
 		i++;
 	return (i);
+}
+long	ft_atol(const char *nptr)
+{
+	int		i;
+	long	num;
+	long	neg;
+
+	i = 0;
+	num = 0;
+	neg = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			neg *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		num = num * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (num * neg);
 }

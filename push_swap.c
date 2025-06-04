@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:24:05 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/04 16:45:06 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/04 20:03:36 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,61 +36,21 @@ int	main(int ac, char **av)
 	ft_create_stack(ac, av, &a_stack, splitted);
 }
 
-int	check_input(int ac, char **av)
-{
-	if (ac == 2)
-	{
-		if (confirm_single(av[1]) == 0)
-			return (0);
-		return (1);
-	}
-	else
-	{
-		if (confirm_multiple(ac, av) == 0)
-			return (0);
-		return (1);
-	}
-}
-
-int	confirm_single(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[0] == '\0')
-		return (0);
-	while (str[i])
-	{
-		while (ft_isspace(str[i]))
-			i++;
-		if (str[i] == '+' || str[i] == '-')
-			i++;
-		if (!ft_isdigit(str[i]))
-			return (0);
-		while (ft_isdigit(str[i]))
-			i++;
-		if (str[i] && !ft_isspace(str[i]))
-			return (0);
-	}
-	return (1);
-}
-int	confirm_multiple(int ac, char **av)
+void	ft_create_stack(int ac, char **av, t_node **a_stack, bool splitted)
 {
 	int		i;
-	long	number;
+	long	nbr;
 
-	i = 1;
+	if (splitted == true)
+		i = 0;
+	else
+		i = 1;
 	while (i < ac)
 	{
-		if (confirm_single(av[i]) == 0)
-			return (0);
-		else
-		{
-			number = ft_atoi(av[i]);
-			if (number < INT_MIN || number > INT_MAX)
-				return (0);
-		}
-		i++;
+		ft_check_validity(av, i, *a_stack, splitted);
+		nbr = ft_atol(av[i]);
+		if (nbr < INT_MIN || nbr > INT_MAX)
+			error_and_free(&a_stack, av, splitted);
+		ft_check_duplicate(); // need to make
 	}
-	return (1);
 }

@@ -1,2 +1,0 @@
-// parsing input, data storage , operations or sort 3 numbers. 
-## made a couplr of functions to check the input (but not the duplicates);
