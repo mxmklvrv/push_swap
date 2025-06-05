@@ -6,13 +6,20 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:24:05 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/05 18:07:29 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/05 18:51:31 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// returning basic values for now, will need an error message and free, etc.
+void print_stack(t_node *stack)
+{
+	while (stack)
+	{
+		printf("%d\n", stack->num);
+		stack = stack->next;
+	}
+}
 
 int	main(int ac, char **av)
 {

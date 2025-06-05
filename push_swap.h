@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:19:19 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/05 18:08:41 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/05 18:53:14 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <limits.h>
 # include <stdbool.h>
+# include <stdio.h> // need to remove
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -28,6 +29,10 @@ typedef struct s_node
 	struct s_node	*previous;
 
 }					t_node;
+
+// test functions below, need to remove
+void				print_stack(t_node *stack);
+// test functions om top, need to remove
 
 // check_functions
 void				ft_check_empty_input(char **av);
