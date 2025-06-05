@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:44:42 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/05 13:28:25 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:42:15 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_check_empty_input(char **av)
 }
 void	ft_check_validity(char **av, int i, t_node **a_stack, bool splitted)
 {
-	int m;
+	int	m;
 
 	m = 0;
 	while (av[i][m])
@@ -47,9 +47,9 @@ void	ft_check_validity(char **av, int i, t_node **a_stack, bool splitted)
 	}
 }
 
-void ft_check_duplicate(char **av, t_node *a_stack, long nbr, bool splitted)
+void	ft_check_duplicate(char **av, t_node *a_stack, long nbr, bool splitted)
 {
-	if(a_stack == NULL)
+	if (a_stack == NULL)
 		return ;
 	while (a_stack != NULL)
 	{
