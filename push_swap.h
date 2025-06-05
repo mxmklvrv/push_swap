@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:19:19 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/05 16:42:23 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/05 18:08:41 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,19 @@ typedef struct s_node
 
 }					t_node;
 
-// input validation
+// check_functions
 void				ft_check_empty_input(char **av);
 void				ft_check_validity(char **av, int i, t_node **a_stack,
 						bool splitted);
 void				ft_check_duplicate(char **av, t_node *a_stack, long nbr,
 						bool splitted);
 
-// ft_basics
+// free
+void				free_splitted(char **arr);
+void				free_stack(t_node **stack);
+void				error_and_free(t_node **a_stack, char **av, bool splitted);
+
+// ft_basic_utils
 int					ft_isspace(int c);
 int					ft_isdigit(int c);
 int					ft_new_ac_count(char **av);
@@ -45,9 +50,13 @@ long				ft_atol(const char *nptr);
 // split
 char				**ft_split(char const *s, char c);
 
-// lists
+// main
+int					main(int ac, char **av);
+
+// stack_op
+t_node				*ft_stack_last(t_node *stack);
+void				ft_add_node(t_node **stack, int nbr);
 void				ft_create_stack(int ac, char **av, t_node **a_stack,
 						bool splitted);
-t_node				*ft_stack_last(t_node *stack);
 
 #endif
