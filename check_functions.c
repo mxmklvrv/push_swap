@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:44:42 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/04 19:58:05 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:28:25 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,17 @@ void	ft_check_validity(char **av, int i, t_node **a_stack, bool splitted)
 			m++;
 		if (!ft_isdigit(av[i][m]))
 			error_and_free(&a_stack, av, splitted); // need to make it
+	}
+}
+
+void ft_check_duplicate(char **av, t_node *a_stack, long nbr, bool splitted)
+{
+	if(a_stack == NULL)
+		return ;
+	while (a_stack != NULL)
+	{
+		if (a_stack->num == nbr)
+			error_and_free(&a_stack, av, splitted);
+		a_stack = a_stack->next;
 	}
 }
