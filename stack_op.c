@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 16:36:13 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/05 18:09:41 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/05 20:14:07 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void	ft_create_stack(int ac, char **av, t_node **a_stack, bool splitted)
 		ft_check_validity(av, i, *a_stack, splitted);
 		nbr = ft_atol(av[i]);
 		if (nbr < INT_MIN || nbr > INT_MAX)
-			error_and_free(&a_stack, av, splitted);
+			error_and_free(a_stack, av, splitted);
 		ft_check_duplicate(av, *a_stack, nbr, splitted);
 		ft_add_node(a_stack, (int)nbr);
 		i++;
 	}
-	if (splitted = true)
+	if (splitted == true)
 		free_splitted(av);
 }

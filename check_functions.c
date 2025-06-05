@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:44:42 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/05 18:04:55 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/05 20:03:37 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,18 @@ void	ft_check_empty_input(char **av)
 		i++;
 	}
 }
-void	ft_check_validity(char **av, int i, t_node **a_stack, bool splitted)
+void	ft_check_validity(char **av, int i, t_node *a_stack, bool splitted)
 {
 	int	m;
 
 	m = 0;
-	while (av[i][m])
+	if ((av[i][m] == '-' || av[i][m] == '+') && ft_isdigit(av[i][m + 1]))
+		m++;
+	while (av[i][m] != '\0')
 	{
-		if ((av[i][m] == '-' || av[i][m] == '+') && ft_isdigit(av[i][m + 1]))
-			m++;
-		while (ft_isdigit(av[i][m]))
-			m++;
 		if (!ft_isdigit(av[i][m]))
-			error_and_free(&a_stack, av, splitted); // need to make it
+			error_and_free(&a_stack, av, splitted);
+		m++;
 	}
 }
 

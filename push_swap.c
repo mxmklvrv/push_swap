@@ -6,17 +6,20 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:24:05 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/05 18:51:31 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/05 20:13:57 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_stack(t_node *stack)
+void	print_stack(t_node *stack)
 {
 	while (stack)
 	{
-		printf("%d\n", stack->num);
+		printf("num: %d", stack->num);
+		// Optional: print index too
+		printf(", index: %d", stack->index);
+		printf("\n");
 		stack = stack->next;
 	}
 }
@@ -27,6 +30,7 @@ int	main(int ac, char **av)
 	t_node	*b_stack;
 	bool	splitted;
 
+	splitted = false;
 	a_stack = NULL;
 	b_stack = NULL;
 	if (ac < 2)
@@ -36,9 +40,12 @@ int	main(int ac, char **av)
 	{
 		av = ft_split(av[1], ' ');
 		if (av == NULL)
-			return (NULL); // function for error or smth.
+			return (1); // function for error or smth.
 		ac = ft_new_ac_count(av);
 		splitted = true;
 	}
 	ft_create_stack(ac, av, &a_stack, splitted);
+	printf("A stack contents:\n");
+	print_stack(a_stack);
+	free_stack(a_stack);
 }

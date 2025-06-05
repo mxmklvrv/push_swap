@@ -6,7 +6,7 @@
 #    By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/30 14:31:23 by mklevero          #+#    #+#              #
-#    Updated: 2025/06/05 19:08:20 by mklevero         ###   ########.fr        #
+#    Updated: 2025/06/05 20:14:03 by mklevero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJ = $(SRCS:.c=.o)
 .SECONDARY: ${OBJ}
 
 NAME = push_swap
-CC = cc 
+CC = cc -g 
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
