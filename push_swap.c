@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:24:05 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/06 13:54:06 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:34:23 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	b_stack = NULL;
 	if (ac < 2)
 		return (0);
-	ft_check_empty_input(av);
+	check_empty_input(av);
 	if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
@@ -45,7 +45,9 @@ int	main(int ac, char **av)
 		splitted = true;
 	}
 	ft_create_stack(ac, av, &a_stack, splitted);
+	printf("ac count =%d\n", ac);
+	// check_sort(a_stack, b_stack, ac, splitted);
 	printf("A stack contents:\n");
 	print_stack(a_stack);
-	free_stack(a_stack);
+	free_stack(&a_stack);
 }

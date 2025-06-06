@@ -6,13 +6,13 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:44:42 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/06 13:59:47 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:34:35 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_empty_input(char **av)
+void	check_empty_input(char **av)
 {
 	int	i;
 	int	j;
@@ -31,7 +31,7 @@ void	ft_check_empty_input(char **av)
 		i++;
 	}
 }
-void	ft_check_validity(char **av, int i, t_node **a_stack, bool splitted)
+void	check_validity(char **av, int i, t_node **a_stack, bool splitted)
 {
 	int	m;
 
@@ -41,23 +41,28 @@ void	ft_check_validity(char **av, int i, t_node **a_stack, bool splitted)
 	while (av[i][m] != '\0')
 	{
 		if (!ft_isdigit(av[i][m]))
-			error_and_free(a_stack, av, splitted);
+			free_and_error(a_stack, av, splitted);
 		m++;
 	}
 }
 
-void	ft_check_duplicate(char **av, t_node **a_stack, long nbr, bool splitted)
+void	check_duplicate(char **av, t_node **a_stack, long nbr, bool splitted)
 {
 	t_node	*temp;
-	if(a_stack == NULL)
-		return ; // think here 
-	if(*a_stack == NULL)
+
+	if (a_stack == NULL)
+		return ; // think here
+	if (*a_stack == NULL)
 		return ;
 	temp = *a_stack;
 	while (temp != NULL)
 	{
-		if(temp->num == nbr)
-			error_and_free(a_stack, av, splitted);
+		if (temp->num == nbr)
+			free_and_error(a_stack, av, splitted);
 		temp = temp->next;
-	} 
+	}
 }
+
+// void	check_sort(t_node *a_stack, t_node *b_stack, int ac, bool splitted)
+// {
+// }

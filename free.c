@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:34:52 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/06 13:59:43 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:39:18 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,28 @@ void	free_splitted(char **arr)
 		free(arr[i++]);
 	free(arr);
 	arr = NULL;
+	printf("freed av after split\n");
 }
 
-void	free_stack(t_node *stack)
+void	free_stack(t_node **stack)
 {
 	t_node	*temp;
 	t_node	*current;
 
-	if (stack == NULL)
+	if (*stack == NULL)
 		return ;
-	current = stack;
+	current = *stack;
 	while (current != NULL)
 	{
 		temp = current->next;
 		free(current);
 		current = temp;
 	}
-	stack = NULL;
+	*stack = NULL;
 }
-void	error_and_free(t_node **a_stack, char **av, bool splitted)
+void	free_and_error(t_node **a_stack, char **av, bool splitted)
 {
-	free_stack(*a_stack); // mkmkmkm
+	free_stack(a_stack);
 	if (splitted == true)
 		free_splitted(av);
 	write(2, "Error\n", 6);

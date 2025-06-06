@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:19:19 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/06 13:50:15 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/06 18:17:02 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,16 @@ void				print_stack(t_node *stack);
 // test functions om top, need to remove
 
 // check_functions
-void				ft_check_empty_input(char **av);
-void				ft_check_validity(char **av, int i, t_node **a_stack,
+void				check_empty_input(char **av);
+void				check_validity(char **av, int i, t_node **a_stack,
 						bool splitted);
-void				ft_check_duplicate(char **av, t_node **a_stack, long nbr,
+void				check_duplicate(char **av, t_node **a_stack, long nbr,
 						bool splitted);
 
 // free
 void				free_splitted(char **arr);
-void				free_stack(t_node *stack);
-void				error_and_free(t_node **a_stack, char **av, bool splitted);
+void				free_stack(t_node **stack);
+void				free_and_error(t_node **a_stack, char **av, bool splitted);
 
 // ft_basic_utils
 int					ft_isspace(int c);
