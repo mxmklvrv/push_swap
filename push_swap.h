@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:19:19 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/09 13:25:31 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/09 15:54:42 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void				check_duplicate(char **av, t_node **a_stack, long nbr,
 void				free_splitted(char **arr);
 void				free_stack(t_node **stack);
 void				free_and_error(t_node **a_stack, char **av, bool splitted);
-void	error_exit(void);
+void				error_exit(void);
 
 // ft_basic_utils
 int					ft_isspace(int c);
@@ -61,7 +61,8 @@ int					main(int ac, char **av);
 
 // stack_op
 t_node				*ft_stack_last(t_node *stack);
-void				ft_add_node(t_node **stack, int nbr);
+void				ft_add_node(t_node **stack, int nbr, char **av,
+						bool splitted);
 void				ft_create_stack(int ac, char **av, t_node **a_stack,
 						bool splitted);
 
