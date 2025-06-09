@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:44:42 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/09 15:54:54 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/09 18:59:27 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,22 @@ void	check_duplicate(char **av, t_node **a_stack, long nbr, bool splitted)
 	}
 }
 
-// void	check_sort(t_node *a_stack, t_node *b_stack, int ac, bool splitted)
-// {
-// 	if (splitted == true)
-// 		ac++;
-// }
+void	check_sort(t_node *a_stack, t_node *b_stack)
+{
+	if (!is_sorted(a_stack))
+	{
+	}
+}
+
+bool	is_sorted(t_node *stack)
+{
+	if (!stack)
+		return (true);
+	while (stack->next)
+	{
+		if (stack->num > stack->next->num)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}

@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 16:36:13 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/09 15:54:40 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/09 16:55:31 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_add_node(t_node **stack, int nbr, char **av, bool splitted)
 	t_node	*last_node;
 
 	if (stack == NULL)
-		return ; // not sure yet.
+		return ;
 	new_current_node = malloc(sizeof(t_node));
 	if (new_current_node == NULL)
 		free_and_error(stack, av, splitted);
