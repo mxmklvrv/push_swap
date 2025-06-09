@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 16:36:13 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/06 18:28:34 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/09 13:14:46 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_node	*ft_stack_last(t_node *stack)
 	return (stack);
 }
 
-void	ft_add_node(t_node **stack, int nbr)
+void	ft_add_node(t_node **stack, int nbr, char **av, bool splitted)
 {
 	t_node	*new_current_node;
 	t_node	*last_node;
@@ -30,7 +30,7 @@ void	ft_add_node(t_node **stack, int nbr)
 		return ; // not sure yet.
 	new_current_node = malloc(sizeof(t_node));
 	if (new_current_node == NULL)
-		return ; // not sure yet.
+		free_and_error(stack, av, splitted);
 	new_current_node->next = NULL;
 	new_current_node->previous = NULL;
 	new_current_node->num = nbr;
@@ -60,7 +60,7 @@ void	ft_create_stack(int ac, char **av, t_node **a_stack, bool splitted)
 		if (nbr < INT_MIN || nbr > INT_MAX)
 			free_and_error(a_stack, av, splitted);
 		check_duplicate(av, a_stack, nbr, splitted);
-		ft_add_node(a_stack, (int)nbr);
+		ft_add_node(a_stack, (int)nbr, av, splitted);
 		i++;
 	}
 	if (splitted == true)
