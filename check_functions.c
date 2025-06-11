@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:44:42 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/10 18:14:03 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/11 11:56:33 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	check_sort(t_node *a_stack, t_node *b_stack)
 {
 	if (!is_sorted(a_stack))
 	{
-		
+		if (stack_len(a_stack) == 2)
+			swap_a_stack(&a_stack);
 	}
 }
 
@@ -83,14 +84,14 @@ bool	is_sorted(t_node *stack)
 	return (true);
 }
 
-// main swap function 
+// main swap function
 static void	swap(t_node **stack)
 {
 	t_node	*first;
 	t_node	*second;
-	
+
 	if (*stack == NULL || (*stack)->next == NULL)
-		return ; 
+		return ;
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
@@ -119,13 +120,13 @@ void	swap_both(t_node **a_stack, t_node **b_stack)
 	write(1, "ss\n", 3);
 }
 // rotate function
-static void rotate(t_node **stack)
+static void	rotate(t_node **stack)
 {
-	t_node *first;
-	t_node *last;
-	
+	t_node	*first;
+	t_node	*last;
+
 	if (*stack == NULL || (*stack)->next == NULL)
-		return ; 
+		return ;
 	first = *stack;
 	last = ft_stack_last(*stack);
 	*stack = first->next;
@@ -134,35 +135,35 @@ static void rotate(t_node **stack)
 	first->previous = last;
 	first->next = NULL;
 }
-void rotate_a_stack(t_node **a_stack)
+void	rotate_a_stack(t_node **a_stack)
 {
 	rotate(a_stack);
 	write(1, "ra\n", 3);
 }
-void rotate_b_stack(t_node **b_stack)
+void	rotate_b_stack(t_node **b_stack)
 {
 	rotate(b_stack);
 	write(1, "rb\n", 3);
 }
-void rotate_both(t_node **a_stack, t_node **b_stack)
+void	rotate_both(t_node **a_stack, t_node **b_stack)
 {
 	rotate(a_stack);
 	rotate(b_stack);
 	write(1, "rr\n", 3);
 }
 // rev_rot function
-static void rev_rotate(t_node **stack)
+static void	rev_rotate(t_node **stack)
 {
-	t_node *last;
-	
+	t_node	*last;
+
 	if (*stack == NULL || (*stack)->next == NULL)
-		return ; 
+		return ;
 	last = ft_stack_last(*stack);
 	last->previous->next = NULL;
 	last->next = *stack;
 	last->previous = NULL;
 	*stack = last;
-	last->next->previous = last;	
+	last->next->previous = last;
 }
 void	rev_rotate_a_stack(t_node **a_stack)
 {
@@ -181,11 +182,11 @@ void	rev_rotate_both(t_node **a_stack, t_node **b_stack)
 	write(1, "rrr\n", 4);
 }
 // push function
-static void push(t_node **dst, t_node **src)
+static void	push(t_node **dst, t_node **src)
 {
-	t_node *to_move;
-	
-	if(*src == NULL)
+	t_node	*to_move;
+
+	if (*src == NULL)
 		return ;
 	to_move = *src;
 	*src = to_move->next;
@@ -198,13 +199,13 @@ static void push(t_node **dst, t_node **src)
 	to_move->previous = NULL;
 	*dst = to_move;
 }
-void push_a_stack(t_node **a_stack, t_node **b_stack)
+void	push_a_stack(t_node **a_stack, t_node **b_stack)
 {
 	push(a_stack, b_stack);
 	write(1, "pa\n", 3);
 }
 
-void push_b_stack(t_node **a_stack, t_node **b_stack)
+void	push_b_stack(t_node **a_stack, t_node **b_stack)
 {
 	push(b_stack, a_stack);
 	write(1, "pb\n", 3);

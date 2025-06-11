@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:19:19 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/09 19:07:44 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/11 11:48:27 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,18 @@ void				ft_add_node(t_node **stack, int nbr, char **av,
 						bool splitted);
 void				ft_create_stack(int ac, char **av, t_node **a_stack,
 						bool splitted);
+
+// movement
+void				swap_a_stack(t_node **a_stack);
+void				swap_b_stack(t_node **b_stack);
+void				swap_both(t_node **a_stack, t_node **b_stack);
+void				rotate_a_stack(t_node **a_stack);
+void				rotate_b_stack(t_node **b_stack);
+void				rotate_both(t_node **a_stack, t_node **b_stack);
+void				rev_rotate_a_stack(t_node **a_stack);
+void				rev_rotate_b_stack(t_node **b_stack);
+void				rev_rotate_both(t_node **a_stack, t_node **b_stack);
+void				push_a_stack(t_node **a_stack, t_node **b_stack);
+void				push_b_stack(t_node **a_stack, t_node **b_stack);
 
 #endif
