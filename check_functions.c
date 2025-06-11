@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 15:44:42 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/11 11:56:33 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/11 13:56:25 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	check_sort(t_node *a_stack, t_node *b_stack)
 	{
 		if (stack_len(a_stack) == 2)
 			swap_a_stack(&a_stack);
+		else if (stack_len(a_stack) == 3)
 	}
 }
 
