@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:34:52 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/11 18:31:48 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/12 13:33:15 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	free_splitted(char **arr)
 		free(arr[i++]);
 	free(arr);
 	arr = NULL;
-	printf("freed av after split\n");
 }
 
 void	free_stack(t_node **stack)
