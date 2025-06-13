@@ -6,23 +6,23 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:24:05 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/13 17:24:02 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/13 19:06:22 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_node *stack)
-{
-	while (stack)
-	{
-		printf("num: %d", stack->num);
-		// Optional: print index too
-		printf(", pos: %d", stack->pos);
-		printf("\n");
-		stack = stack->next;
-	}
-}
+// void	print_stack(t_node *stack)
+// {
+// 	while (stack)
+// 	{
+// 		printf("num: %d", stack->num);
+// 		// Optional: print index too
+// 		printf(", pos: %d", stack->pos);
+// 		printf("\n");
+// 		stack = stack->next;
+// 	}
+// }
 
 int	main(int ac, char **av)
 {
@@ -45,11 +45,11 @@ int	main(int ac, char **av)
 		splitted = true;
 	}
 	ft_create_stack(ac, av, &a_stack, splitted);
-	printf("A stack contents:\n");
-	print_stack(a_stack);
+	// printf("A stack contents:\n");
+	// print_stack(a_stack);
 	check_sort(&a_stack, &b_stack);
-	printf("A stack contents after sort:\n");
-	print_stack(a_stack);
-	free_stack(&a_stack);
+	// printf("A stack contents after sort:\n");
+	// print_stack(a_stack);
+	// free_stack(&a_stack);
 	return (0);
 }

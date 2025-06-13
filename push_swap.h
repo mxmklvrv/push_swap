@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:19:19 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/13 17:30:53 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/13 19:05:58 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_node
 }					t_node;
 
 // test functions below, need to remove
-void				print_stack(t_node *stack);
+// void				print_stack(t_node *stack);
 // test functions om top, need to remove
 
 // check_functions
