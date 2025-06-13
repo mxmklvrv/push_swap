@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:24:05 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/12 14:07:48 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/13 17:24:02 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_stack(t_node *stack)
 	{
 		printf("num: %d", stack->num);
 		// Optional: print index too
-		printf(", index: %d", stack->index);
+		printf(", pos: %d", stack->pos);
 		printf("\n");
 		stack = stack->next;
 	}
