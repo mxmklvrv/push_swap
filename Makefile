@@ -6,12 +6,12 @@
 #    By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/30 14:31:23 by mklevero          #+#    #+#              #
-#    Updated: 2025/06/14 13:14:12 by mklevero         ###   ########.fr        #
+#    Updated: 2025/06/14 14:15:39 by mklevero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = push_swap.c stack_op.c ft_split.c ft_basic_utils.c free.c \
-check_functions.c sort_three.c sort_op.c swap.c push.c rotate.c \
+check_functions.c sort_alg.c sort_op.c swap.c push.c rotate.c \
 rev_rot.c 
 
 OBJ = $(SRCS:.c=.o)

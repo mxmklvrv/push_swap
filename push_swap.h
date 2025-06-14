@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 16:19:19 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/13 19:05:58 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/14 17:54:04 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ void				push_back(t_node **a_stack, t_node **b_stack);
 void				final_touch(t_node **a_stack, t_node **b_stack,
 						t_node *cheapest, t_node *tg_in_a);
 t_node				*find_cheapest(t_node *stack);
+int					calculate_price(t_node *b_stack, int len_a, int len_b);
 
 #endif

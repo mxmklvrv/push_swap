@@ -6,7 +6,7 @@
 /*   By: mklevero <mklevero@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:19:47 by mklevero          #+#    #+#             */
-/*   Updated: 2025/06/14 13:21:28 by mklevero         ###   ########.fr       */
+/*   Updated: 2025/06/14 17:53:22 by mklevero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ t_node	*find_small_num(t_node *stack)
 	}
 	return (small);
 }
-
 
 void	prep_nodes(t_node *a_stack, t_node *b_stack)
 {
@@ -110,23 +109,46 @@ void	set_price(t_node *a_stack, t_node *b_stack)
 	len_b = stack_len(b_stack);
 	while (b_stack)
 	{
-		b_stack->push_price = b_stack->pos;
-		if (b_stack->above_mid == false)
-			b_stack->push_price = len_b - (b_stack->pos);
-		if (b_stack->target_node->above_mid == true)
-			b_stack->push_price += b_stack->target_node->pos;
-		else
-			b_stack->push_price += len_a - (b_stack->target_node->pos);
+		b_stack->push_price = calculate_price(b_stack, len_a, len_b);
 		b_stack = b_stack->next;
 	}
+}
+int	calculate_price(t_node *b_stack, int len_a, int len_b)
+{
+	int	price_a;
+	int	price_b;
+
+	if (b_stack->above_mid == true)
+		price_b = b_stack->pos;
+	else
+		price_b = len_b - (b_stack->pos);
+	if (b_stack->target_node->above_mid == true)
+		price_a = b_stack->target_node->pos;
+	else
+		price_a = len_a - (b_stack->target_node->pos);
+	if (b_stack->above_mid == b_stack->target_node->above_mid)
+	{
+		if (price_b > price_a)
+			return (price_b);
+		else
+			return (price_a);
+	}
+	return (price_a + price_b);
 }
 
 void	set_cheapest(t_node *b_stack)
 {
 	t_node	*option;
 
+	// t_node	*tmp;
 	if (b_stack == NULL)
 		return ;
+	// tmp = b_stack;
+	// while (tmp)
+	// {
+	// 	tmp->cheapest = false;
+	// 	tmp = tmp->next;
+	// }
 	option = b_stack;
 	while (b_stack)
 	{
